@@ -3,7 +3,8 @@ import React from "react";
 
 
 function MyBucket({ myBucket }) {
-    const[myBucketProducts,myBucketPrice]=myBucket;
+    const{myBucketProducts,myBucketPrice}=myBucket;
+    console.log(myBucket)
   return (
     <fieldset>
       <legend>My Bucket</legend>
