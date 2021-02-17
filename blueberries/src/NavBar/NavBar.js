@@ -4,7 +4,6 @@ function NavBar(props) {
     
     return (
         <div className="navBar">
-            <img src={}/>
                 <div className="options">
                 <a>Store</a>
                 <a>About Us</a>

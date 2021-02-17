@@ -233,3 +233,4 @@ const data = [
     img: './src/img/xl'
   }
 ]
+export default data;

@@ -2,11 +2,9 @@ import React from "react";
 
 const categories = [
   "all",
-  "sweets",
-  "icecream",
-  "chips",
-  "drinks",
-  "other",
+"ice cream",
+"drinks",
+"chocolate"
 ];
 
 function CategoryFilter({ catFilter, setCatFilter }) {
