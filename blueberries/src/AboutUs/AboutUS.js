@@ -23,7 +23,7 @@ function AboutUs (props) {
           {' '}
           P.S we are not respnosiple for any kind of addiction once you visit us
         </strong>
-      </p>
+      </p> 
     </div>
   )
 }
