@@ -1,14 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import ContactUs from "./contactUs/contactUs.js"
-
+import Store from "./Store/Store.js"
+import NavBar from "./NavBar/NavBar.js"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-      <ContactUs/>
-    </div>
+    <div>
+    <NavBar/>
+ <Store/>
+ </div>
   );
 }
 

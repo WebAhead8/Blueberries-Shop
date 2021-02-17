@@ -1,7 +1,7 @@
 const data = [
   {
     id: 1,
-    productName: 'Bounty',
+    productName: 'Bountyt',
     description: 'coconut and chocolate ice cream',
     price: 4,
     category: 'ice cream',
@@ -50,7 +50,7 @@ const data = [
   {
     id: 7,
     productName: 'Magic',
-    description: 'sour milk colorful ice cream',
+    description: 'sour milk clorful ice cream',
     price: 1,
     category: 'ice cream',
     img: '/img/Magic1.jpg'
@@ -233,3 +233,5 @@ const data = [
     img: '/img/xl.jpeg'
   }
 ]
+
+export default data;
