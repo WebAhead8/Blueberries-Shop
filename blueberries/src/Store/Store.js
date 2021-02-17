@@ -22,7 +22,7 @@ function Store (props) {
             setPriceFilter={setPriceFilter}
           />
           <CategoryFilter catFilter={catFilter} setCatFilter={setCatFilter} />
-          <MyBucket myBucket={myBucket} />
+          <MyBucket myBucket={myBucket} setMyBucket={setMyBucket}/>
         </form>
       </section>
       <section className='products'>
