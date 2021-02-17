@@ -1,11 +1,10 @@
 import React from "react";
-import Logo from "../images/logo192.png";
 import "./NavBar.css";
 function NavBar(props) {
     
     return (
         <div className="navBar">
-            <img src={Logo}/>
+            <img src={}/>
                 <div className="options">
                 <a>Store</a>
                 <a>About Us</a>
