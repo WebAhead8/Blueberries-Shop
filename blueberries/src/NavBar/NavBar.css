@@ -1,0 +1,20 @@
+.navBar {
+    display: flex;
+    background-color: honeydew;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  a {
+    margin: 10px;
+    color: black;
+    background-color: rgba(174, 179, 179, 0.205);
+    width: 80%;
+    font-size: large;
+    font-family: cursive;
+  }
+  img {
+    width: 50px;
+    margin: 10px;
+  }
+  
