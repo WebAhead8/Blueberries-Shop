@@ -15,7 +15,7 @@ function MyBucket({ myBucket,setMyBucket }) {
         checked={true}
         onChange={(event) => {
             const result=myBucketProducts.filter((product,index)=>  index!==i);
-            setMyBucket(result,myBucketPrice-product.price);
+            setMyBucket({myBucketProducts:result,myBucketPrice:myBucketPrice-product.price});
         }}
         />
         {product.productName}------- {product.price}₪
