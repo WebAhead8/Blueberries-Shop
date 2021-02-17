@@ -2,8 +2,13 @@ ul {
     padding: 0;
     list-style: none;
   }
-  img{
+  .productImage{
     width: 70%;
+  }
+
+  .addToBucket{
+    width: 40px;
+   float: right;
   }
   
   main {

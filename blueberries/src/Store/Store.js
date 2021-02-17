@@ -3,9 +3,11 @@ import "./Store.css";
 import PriceFilter from "../PriceFilter/PriceFilter.js";
 import CategoryFilter from "../CategoryFilter/CategoryFilter.js";
 import ProductsList from "../ProductsList/ProductsList.js";
+import MyBucket from "../MyBucket/MyBucket.js";
 function Store(props) {
   const [catFilter, setCatFilter] = React.useState("all");
   const [priceFilter, setPriceFilter] = React.useState([1, 50]);
+  const [myBucket, setMyBucket] = React.useState([[], 0]);
   return (
     <main>
       <section className="filters">
@@ -17,11 +19,17 @@ function Store(props) {
             setPriceFilter={setPriceFilter}
           />
           <CategoryFilter catFilter={catFilter} setCatFilter={setCatFilter} />
+          <MyBucket myBucket={myBucket} />
         </form>
       </section>
       <section className="products">
         <h2>Products</h2>
-        <ProductsList catFilter={catFilter} priceFilter={priceFilter} />
+        <ProductsList
+          catFilter={catFilter}
+          priceFilter={priceFilter}
+          myBucket={myBucket}
+          setMyBucket={setMyBucket}
+        />
       </section>
     </main>
   );
