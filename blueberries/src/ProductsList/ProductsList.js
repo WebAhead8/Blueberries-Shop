@@ -7,9 +7,9 @@ function ProductsList({ catFilter, priceFilter }) {
     .filter(product => product.price >= minPrice && product.price <= maxPrice)
     .map(product => (
       <li key={product.id} className="card">
-          <img src={"../img/bounty.png"}/>
         <h3>{product.productName}</h3>
         <p>{product.description}</p>
+        <img src={product.img}/>
         <div>₪{product.price.toFixed(2)}</div>
       </li>
     ));
