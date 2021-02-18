@@ -1,1 +1,6 @@
-
+.contactUse{
+    color: rgb(7, 7, 7);
+    background-color:rgba(255, 255, 255, 0.849) ;
+    width: fit-content;
+    margin: auto;
+}
