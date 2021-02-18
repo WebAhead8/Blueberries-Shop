@@ -221,7 +221,7 @@ const data = [
     productName: 'Blu',
     description: 'Blue energy drink',
     price: 5,
-    category: 'drink',
+    category: 'drinks',
     img: '/img/blu.jpg'
   },
   {
@@ -229,7 +229,7 @@ const data = [
     productName: 'XL',
     description: 'XL energy drink',
     price: 5,
-    category: 'drink',
+    category: 'drinks',
     img: '/img/xl.jpeg'
   }
 ]
