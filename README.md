@@ -15,16 +15,15 @@
  
 ##Project diagram 
 
-
-
 <img width="500" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108354654-6a0a0d00-71f2-11eb-9be5-0dc47dabff2e.png">
 <img width="500" alt="Whiteboard 6 -01" src="https://user-images.githubusercontent.com/27367032/108354656-6aa2a380-71f2-11eb-8a40-af0334de8397.png">
 
 ## The website 
-<img width="300" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108355803-f8cb5980-71f3-11eb-9086-6560dfd0044c.JPG">
-<img width="300" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108355811-fa951d00-71f3-11eb-9733-f5bacb2d4f55.JPG">
-<img width="300" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108355815-fcf77700-71f3-11eb-87db-9c72353c0d95.JPGG">
-<img width="300" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108355821-fec13a80-71f3-11eb-82c2-2003a0e6664d.JPG">
+
+<img width="500" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108355803-f8cb5980-71f3-11eb-9086-6560dfd0044c.JPG">
+<img width="500" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108355811-fa951d00-71f3-11eb-9733-f5bacb2d4f55.JPG">
+<img width="500" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108355815-fcf77700-71f3-11eb-87db-9c72353c0d95.JPG">
+<img width="500" alt="Whiteboard 5 -02" src="https://user-images.githubusercontent.com/27367032/108355821-fec13a80-71f3-11eb-82c2-2003a0e6664d.JPG">
 
 
 
