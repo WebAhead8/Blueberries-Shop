@@ -33,3 +33,6 @@ This website was developed by
 * Ebrahem Ghantous
 * Hadi Moallem
 * Aladdin Hammodi
+
+
+feel free to use the website for study issues
