@@ -1,5 +1,5 @@
 import React from "react";
-import "./ContactUs";
+import "./ContactUs.css";
 
 
 function ContactUs(props) {
