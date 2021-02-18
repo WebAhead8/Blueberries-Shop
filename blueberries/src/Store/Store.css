@@ -9,6 +9,11 @@ ul {
   .addToBucket{
     width: 40px;
    float: right;
+   cursor: pointer;
+  }
+  .addToBucket:hover{
+    width: 45px;
+    height: 45px;
   }
   
   main {
