@@ -2,11 +2,11 @@ import React from "react";
 import "./LogIn.css"
 import ErrorComponent from "../HelperComponents/ErrorComponent.js"
 import { login } from "../Fetches/loginFetch.js";
-
+import { useHistory } from "react-router-dom";
 
 function LogIn() {
 
-
+    const history = useHistory();
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [validLogIn, setValidLogIn] = React.useState("");
@@ -34,7 +34,8 @@ function LogIn() {
                 }
             } else {
                 setValidLogIn("")
-
+                localStorage.setItem('user', data.access_token);
+                history.push("/");
             }
 
         }).catch(err => {
@@ -65,7 +66,7 @@ function LogIn() {
             </div>
             <input className="button" value="Login" type="submit" />
             {validLogIn === "notValid" ? <ErrorComponent>Invalid email Or password</ErrorComponent> : ""}
-            <a className="aLink" >SignUp</a>
+            <a className="aLink" href="/signup">SignUp</a>
         </form>
     )
 }
