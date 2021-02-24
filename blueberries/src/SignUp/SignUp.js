@@ -55,13 +55,12 @@ function SignUp(props) {
         else {
             setPasswordValidation("")
         }
-        
+
     })
 
     const confirmPasswordHandler = (e => {
         setConfirmPassword(e.target.value)
-        if(passwordValidation || e.target.value!==password)
-        {
+        if (passwordValidation || e.target.value !== password) {
             setConfirmPasswordValidation("error")
         }
         else {
@@ -78,7 +77,7 @@ function SignUp(props) {
 
     return (
         <form onSubmit={signUpHandler} className="signUpForm">
-            <h1>Log in</h1>
+            <h1>Sign Up</h1>
 
 
             <label htmlFor="email">Email:
@@ -99,11 +98,11 @@ function SignUp(props) {
             <label htmlFor="password">Password:
             <input name="password" id="password" type="password" onChange={passwordHandler} value={password} className={passwordValidation} />
             </label>
-      
-                {passwordValidation ? <ErrorComponent>Password should more than 7 characters</ErrorComponent> : ""}
-                {passwordValidation ? <ErrorComponent>Password should contain capital letters</ErrorComponent> : ""}
-                {passwordValidation ? <ErrorComponent>Password should contain small letters</ErrorComponent> : ""}
-                {passwordValidation ? <ErrorComponent>Password should contain numbers</ErrorComponent> : ""}
+
+            {passwordValidation ? <ErrorComponent>Password should more than 7 characters</ErrorComponent> : ""}
+            {passwordValidation ? <ErrorComponent>Password should contain capital letters</ErrorComponent> : ""}
+            {passwordValidation ? <ErrorComponent>Password should contain small letters</ErrorComponent> : ""}
+            {passwordValidation ? <ErrorComponent>Password should contain numbers</ErrorComponent> : ""}
 
             <label htmlFor="confirmPassword">Confirm Password:
             <input name="confirmPassword" id="confirmPassword" type="password" onChange={confirmPasswordHandler} value={confirmPassword} className={confirmPasswordValidation} />
@@ -112,10 +111,10 @@ function SignUp(props) {
 
 
 
-            <input className="button" value="SignUp" type="submit"/>
+            <input className="button" value="SignUp" type="submit" />
 
 
-            <a className="aLink" href="/regestration">LogIn</a>
+            <a className="aLink" href="/login">LogIn</a>
         </form>
     )
 }
