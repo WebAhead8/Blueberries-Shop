@@ -1,12 +1,15 @@
 import React from "react";
 import "./LogIn.css"
 import ErrorComponent from "../HelperComponents/ErrorComponent.js"
+import { login } from "../Fetches/loginFetch.js";
+
 
 function LogIn() {
 
+
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [validLogIn, NotValidLogIn] = React.useState("");
+    const [validLogIn, setValidLogIn] = React.useState("");
 
 
 
@@ -22,6 +25,25 @@ function LogIn() {
 
     const logInHandler = (e => {
         e.preventDefault();
+        login(email, password).then(data => {
+            console.log(data)
+            if (data.error) {
+                if (data.error.status === 404) {
+                    setValidLogIn("notValid")
+
+                }
+            } else {
+                setValidLogIn("")
+
+            }
+
+        }).catch(err => {
+            console.log("err", err)
+
+
+
+        })
+
     })
 
 
@@ -41,8 +63,8 @@ function LogIn() {
             <div className="errorField">
                 {/* <label className="errorLabel">Invalid email Or Password</label> */}
             </div>
-            <input className="button" value="Login" type="submit"/>
-            {validLogIn==="notValid"?<ErrorComponent>Invalid email Or password</ErrorComponent>:""}
+            <input className="button" value="Login" type="submit" />
+            {validLogIn === "notValid" ? <ErrorComponent>Invalid email Or password</ErrorComponent> : ""}
             <a className="aLink" >SignUp</a>
         </form>
     )
