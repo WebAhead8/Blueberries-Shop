@@ -5,7 +5,7 @@ const data = [
     description: 'coconut and chocolate ice cream',
     price: 4,
     category: 'ice cream',
-    img: '/img/bounty.png'
+    img: '/products_img/bounty.png'
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const data = [
     description: 'cramel and milk ice cream, 500 ml',
     price: 25,
     category: 'ice cream',
-    img: '/img/cadbury.png'
+    img: '/products_img/cadbury.png'
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const data = [
     description: 'four pcs of luxury chocolate ice cream',
     price: 45,
     category: 'ice cream',
-    img: '/img/cote dor chocolate.jpg'
+    img: '/products_img/cote dor chocolate.jpg'
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const data = [
     description: 'caramel milk and choclolate chips ice cream, 500 ml',
     price: 25,
     category: 'ice cream',
-    img: '/img/crunchie.jpg'
+    img: '/products_img/crunchie.jpg'
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const data = [
     description: ' kinder milk on stick coated with chocolate',
     price: 4,
     category: 'ice cream',
-    img: '/img/kinder stick.jpg'
+    img: '/products_img/kinder stick.jpg'
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const data = [
     description: 'cynamon flavord ice cream, four pcs',
     price: 40,
     category: 'ice cream',
-    img: '/img/lotus 4.jpg'
+    img: '/products_img/lotus 4.jpg'
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const data = [
     description: 'sour milk colorful ice cream',
     price: 1,
     category: 'ice cream',
-    img: '/img/Magic1.jpg'
+    img: '/products_img/Magic1.jpg'
   },
   {
     id: 8,
@@ -62,7 +62,7 @@ const data = [
       '3 pcs of malteseres flavored mmilk ice cream coted with chocolate and includes malteseres chips',
     price: 25,
     category: 'ice cream',
-    img: '/img/maltesers.jpg'
+    img: '/products_img/maltesers.jpg'
   },
   {
     id: 9,
@@ -70,7 +70,7 @@ const data = [
     description: ' melon flavored milk ice cream',
     price: 1,
     category: 'ice cream',
-    img: '/img/momo2.jpg'
+    img: '/products_img/momo2.jpg'
   },
   {
     id: 10,
@@ -78,7 +78,7 @@ const data = [
     description: 'watermelon milk flavored ice cream',
     price: 1,
     category: 'cie cream',
-    img: '/img/momo31.jpg'
+    img: '/products_img/momo31.jpg'
   },
   {
     id: 11,
@@ -86,7 +86,7 @@ const data = [
     description: 'oreo biskuits ice cream',
     price: 8,
     category: 'ice cream',
-    img: '/img/oreo sandwich.png'
+    img: '/products_img/oreo sandwich.png'
   },
   {
     id: 12,
@@ -94,7 +94,7 @@ const data = [
     description: 'oreo biskuits ice cream coated with chcolate',
     price: 8,
     category: 'ice cream',
-    img: '/img/oreo stick sandwich.png'
+    img: '/products_img/oreo stick sandwich.png'
   },
   {
     id: 13,
@@ -102,7 +102,7 @@ const data = [
     description: 'milk sandwich ice cream',
     price: 1,
     category: 'ice cream',
-    img: '/img/P16.jpg'
+    img: '/products_img/P16.jpg'
   },
   {
     id: 14,
@@ -110,7 +110,7 @@ const data = [
     description: '3 pcs of sktittles flavored ice cream with skittles chunks',
     price: 25,
     category: 'ice cream',
-    img: '/img/skittles.jpg'
+    img: '/products_img/skittles.jpg'
   },
   {
     id: 15,
@@ -118,7 +118,7 @@ const data = [
     description: 'snickers flavored ice cfream 500 ml',
     price: 30,
     category: 'ice cream',
-    img: '/img/snickers 500 ml.jpg'
+    img: '/products_img/snickers 500 ml.jpg'
   },
   {
     id: 16,
@@ -126,7 +126,7 @@ const data = [
     description: 'snickers flavored ice cream',
     price: 4,
     category: 'ice cream',
-    img: '/img/snickers.png'
+    img: '/products_img/snickers.png'
   },
   {
     id: 17,
@@ -134,7 +134,7 @@ const data = [
     description: 's pcs of toblerone flavored ice cream',
     price: 25,
     category: 'ice cream',
-    img: '/img/toblerone mini.png'
+    img: '/products_img/toblerone mini.png'
   },
   {
     id: 18,
@@ -142,7 +142,7 @@ const data = [
     description: 'twix flavored ice cream',
     price: 4,
     category: 'ice cream',
-    img: '/img/twix.png'
+    img: '/products_img/twix.png'
   },
   {
     id: 19,
@@ -150,7 +150,7 @@ const data = [
     description: 'milka chocolate bars 100g',
     price: 4,
     category: 'chocolate',
-    img: '/img/milka chocolate bars 100g.jpg'
+    img: '/products_img/milka chocolate bars 100g.jpg'
   },
   {
     id: 20,
@@ -158,7 +158,7 @@ const data = [
     description: 'milka biscuits',
     price: 10,
     category: 'chocolate',
-    img: '/img/milka biscuits choco pause.jpg'
+    img: '/products_img/milka biscuits choco pause.jpg'
   },
   {
     id: 21,
@@ -166,7 +166,7 @@ const data = [
     description: 'milka sensations bescuits',
     price: 10,
     category: 'chocolate',
-    img: '/img/milka sensations.jpg'
+    img: '/products_img/milka sensations.jpg'
   },
   {
     id: 22,
@@ -174,7 +174,7 @@ const data = [
     description: 'kinder cards snacks',
     price: 4,
     category: 'chocolate',
-    img: './img/kinder-cards-snacks1.png'
+    img: './products_img/kinder-cards-snacks1.png'
   },
   {
     id: 23,
@@ -182,7 +182,7 @@ const data = [
     description: 'kinder delice biscuits',
     price: 2,
     category: 'chocolate',
-    img: '/img/kinder delice.png'
+    img: '/products_img/kinder delice.png'
   },
   {
     id: 25,
@@ -190,7 +190,7 @@ const data = [
     description: 'kinder bueno biscuits',
     price: 4,
     category: 'chocolate',
-    img: '/img/kinder-bueno-2er-bars.jpg'
+    img: '/products_img/kinder-bueno-2er-bars.jpg'
   },
   {
     id: 26,
@@ -198,7 +198,7 @@ const data = [
     description: 'coca cola 330ml',
     price: 5,
     category: 'drinks',
-    img: '/img/coca-cola-can-034.jpg'
+    img: '/products_img/coca-cola-can-034.jpg'
   },
   {
     id: 27,
@@ -206,7 +206,7 @@ const data = [
     description: 'fanta 330 ml',
     price: 5,
     category: 'drinks',
-    img: '/img/fanta.jpg'
+    img: '/products_img/fanta.jpg'
   },
   {
     id: 28,
@@ -214,7 +214,7 @@ const data = [
     description: 'lemon lime 330ml',
     price: 5,
     category: 'drinks',
-    img: '/img/sprite.jpg'
+    img: '/products_img/sprite.jpg'
   },
   {
     id: 29,
@@ -222,7 +222,7 @@ const data = [
     description: 'Blue energy drink',
     price: 5,
     category: 'drinks',
-    img: '/img/blu.jpg'
+    img: '/products_img/blu.jpg'
   },
   {
     id: 30,
@@ -230,7 +230,7 @@ const data = [
     description: 'XL energy drink',
     price: 5,
     category: 'drinks',
-    img: '/img/xl.jpeg'
+    img: '/products_img/xl.jpeg'
   }
 ]
 
