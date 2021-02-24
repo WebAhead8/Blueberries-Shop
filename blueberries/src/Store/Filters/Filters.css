@@ -1,0 +1,44 @@
+.filters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    min-height: 100%;
+    height: auto;
+    width: 20%;
+    min-width: 200px;
+    transform: translateX(-100%);
+    background-color: lightblue;
+    transition: all 0.5s ease-in;
+    box-shadow: 1px 0 3px grey;
+  }
+  .filters_button {
+    position: fixed;
+    z-index: 2;
+    top: 10%;
+    left: 1%;
+   
+    width: 40px;
+    height: 40px;
+    transition: all 0.5s ease-in;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .filters_visible {
+    transform: translateX(0);
+  }
+  .filters_button_visible {
+    transform: scale(0.7);
+    top: 0%;
+    left: 0%;
+  }
+  
+   fieldset{
+     border: white 3px solid;
+     margin: 5px;
+   }
+   input[type=text]
+   {
+     width: 95%;
+   }
