@@ -4,7 +4,7 @@ import ErrorComponent from "../HelperComponents/ErrorComponent.js"
 import { login } from "../Fetches/loginFetch.js";
 import { useHistory } from "react-router-dom";
 
-function LogIn() {
+function LogIn({ setLogedIn }) {
 
     const history = useHistory();
     const [email, setEmail] = React.useState("");
@@ -26,7 +26,6 @@ function LogIn() {
     const logInHandler = (e => {
         e.preventDefault();
         login(email, password).then(data => {
-            console.log(data)
             if (data.error) {
                 if (data.error.status === 404) {
                     setValidLogIn("notValid")
@@ -36,13 +35,12 @@ function LogIn() {
                 setValidLogIn("")
                 localStorage.setItem('user', data.access_token);
                 history.push("/");
+                //window.location.reload();
+                setLogedIn(true)
             }
 
         }).catch(err => {
             console.log("err", err)
-
-
-
         })
 
     })

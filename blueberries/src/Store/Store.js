@@ -9,6 +9,9 @@ function Store(props) {
   const [priceFilter, setPriceFilter] = React.useState([1, 100]);
   const [myCard, setMyCard] = React.useState([{}, 0]);
 
+
+
+
   return (
     <div className="store">
       <h1>Products</h1>
