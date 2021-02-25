@@ -1,9 +1,12 @@
 import React from "react"
 import "../AddProduct/AddProduct.css"
 import { addProduct } from "../Fetches/addProductFetch.js";
+import { useHistory } from "react-router-dom";
 
 
 function AddProduct(props) {
+    const history = useHistory();
+
     const [category, setCategory] = React.useState("ice cream");
     const [product_Name, setProductName] = React.useState("");
     const [product_price, setProductPrice] = React.useState(0);
@@ -22,7 +25,8 @@ function AddProduct(props) {
             category: category
         }
         addProduct(product, localStorage.getItem("user")).then(data => {
-            console.log(data)
+            history.push("/");
+
         }
 
         )

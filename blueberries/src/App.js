@@ -9,16 +9,31 @@ import Login from './LogIn/LogIn.js'
 import SignUp from './SignUp/SignUp.js'
 import AddProduct from './AddProduct/AddProduct.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { getUser } from "./Fetches/getUser";
 
 function App() {
   // const [logedIn, setLogedIn] = React.useState(false);
   const [logedIn, setLogedIn] = React.useState(false);
+  const [userName, setUserName] = React.useState("");
+  React.useEffect(() => {
 
+    const user = localStorage.getItem("user");
+    if (user) {
+
+      getUser(user).then(data => {
+        console.log(data)
+        setUserName(data.firstname)
+      })
+    } else {
+      setUserName("")
+
+    }
+  }, [logedIn]);
   return (
     //<AddProduct />
     <Router>
       <div className='App'>
-        <NavBar logedIn={logedIn} setLogedIn={setLogedIn} />
+        <NavBar userName={userName} logedIn={logedIn} setLogedIn={setLogedIn} />
 
         <Switch>
           <Route exact path='/AboutUs' component={AboutUs}></Route>
@@ -26,7 +41,7 @@ function App() {
           <Route exact path='/ContactUs' component={ContactUs}></Route>
           <Route exact path='/signup' component={SignUp}></Route>
           <Route exact path='/' component={Store}></Route>
-          <Route exact path='/Login' component={Login}></Route>
+          <Route exact path='/Login' component={() => <Login logedIn={logedIn} setLogedIn={setLogedIn} />}></Route>
         </Switch>
       </div>
     </Router>
