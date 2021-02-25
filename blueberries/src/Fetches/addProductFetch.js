@@ -2,7 +2,7 @@ require('dotenv').config()
 
 export const addProduct = (data, auth) => {
 
-    return fetch(`http://localhost:4000/addproduct`, {
+    return fetch(`${process.env.REACT_APP_BACKEND_URL}addproduct`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ require('dotenv').config()
 
 export const getUser = (token) => {
 
-    return fetch(`http://localhost:4000/getuser`, {
+    return fetch(`${process.env.REACT_APP_BACKEND_URL}getuser`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

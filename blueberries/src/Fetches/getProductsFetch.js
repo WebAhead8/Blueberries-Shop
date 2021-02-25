@@ -2,7 +2,7 @@ require('dotenv').config()
 
 export const getAllProducts = () => {
 
-    return fetch(`http://localhost:4000/products`)
+    return fetch(`${process.env.REACT_APP_BACKEND_URL}products`)
         .then(promise => {
             return promise.json();
         })
