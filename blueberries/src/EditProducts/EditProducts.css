@@ -1,0 +1,16 @@
+.saveImg {
+  width: 70px;
+  cursor: pointer;
+  text-align: center;
+}
+table {
+  color: aliceblue;
+}
+.trashSymbol {
+  height: 40px;
+  width: 35px;
+  cursor: pointer;
+}
+td > input {
+  width: 50px;
+}

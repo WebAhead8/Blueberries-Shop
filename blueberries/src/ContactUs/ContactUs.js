@@ -1,7 +1,11 @@
 import React from "react";
 import "./ContactUs.css";
+import { addcomment } from "../Fetches/addCommentFetch"
 
 function ContactUs(props) {
+  const [sent, setSent] = React.useState(false);
+
+
   const [name, setName] = React.useState("");
   const nameHandler = (event) => setName(event.target.value);
 
@@ -14,22 +18,26 @@ function ContactUs(props) {
   const [comment, setComment] = React.useState("");
   const commentHandler = (event) => setComment(event.target.value);
 
-  const [comments, setComments] = React.useState([]);
   const commentsHandler = (event) => {
-      if(!name || !email || !phone || !comment)
-      {
-          alert("fill all the feilds");
-      }
-      else{
-        setComments(
-            comments.concat({
-              name: name,
-              email: email,
-              phone: phone,
-              comment: comment,
-            })
-          );
-      }
+    if (!name || !email || !phone || !comment) {
+      alert("fill all the feilds");
+    }
+    else {
+
+      addcomment({
+        name: name,
+        email: email,
+        phonenumber: phone,
+        comment: comment,
+      }).then(data => {
+        setName("");
+        setEmail("");
+        setPhone("");
+        setComment("")
+        setSent(true)
+      })
+
+    }
 
   };
 
@@ -74,28 +82,14 @@ function ContactUs(props) {
         />
 
         <br />
-        <button onClick={commentsHandler}>submit</button>
+        {sent ? <h5>message Sent To The shop</h5> : ""}
 
+        <button onClick={commentsHandler}>send</button>
         <br />
         <br />
         <footer>CopyRight-Store Name - Blueberries</footer>
       </div>
 
-      <div className="theComments">
-        <h2>comments</h2>
-        <ul>
-        {comments.map((comment) => (
-          <li className="theLi">
-            Name: {comment.name}
-            <br />
-            Phone:{comment.phone}
-            <br />
-            comment:{comment.comment}
-            <br />
-          </li>
-        ))}
-        </ul>
-      </div>
     </div>
   );
 }

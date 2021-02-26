@@ -8,6 +8,8 @@ import NavBar from './NavBar/NavBar.js'
 import Login from './LogIn/LogIn.js'
 import SignUp from './SignUp/SignUp.js'
 import AddProduct from './AddProduct/AddProduct.js'
+import EditProducts from './EditProducts/EditProducts.js'
+import Viewcomment from './ViewComments/ViewComments.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { getUser } from "./Fetches/getUser";
 
@@ -16,12 +18,11 @@ function App() {
   const [logedIn, setLogedIn] = React.useState(false);
   const [userName, setUserName] = React.useState("");
   React.useEffect(() => {
-
     const user = localStorage.getItem("user");
     if (user) {
 
       getUser(user).then(data => {
-        console.log(data)
+
         setUserName(data.firstname)
       })
     } else {
@@ -37,10 +38,12 @@ function App() {
 
         <Switch>
           <Route exact path='/AboutUs' component={AboutUs}></Route>
+          <Route exact path='/editproducts' component={EditProducts}></Route>
           <Route exact path='/addproduct' component={AddProduct}></Route>
           <Route exact path='/ContactUs' component={ContactUs}></Route>
           <Route exact path='/signup' component={SignUp}></Route>
           <Route exact path='/' component={Store}></Route>
+          <Route exact path='/comments' component={Viewcomment}></Route>
           <Route exact path='/Login' component={() => <Login logedIn={logedIn} setLogedIn={setLogedIn} />}></Route>
         </Switch>
       </div>

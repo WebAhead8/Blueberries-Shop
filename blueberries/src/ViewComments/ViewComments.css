@@ -1,0 +1,17 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.comment > label {
+  color: blanchedalmond;
+}
+.comment > label > b {
+  color: black;
+}
+.comments {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
