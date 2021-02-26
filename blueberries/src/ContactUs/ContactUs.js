@@ -27,7 +27,7 @@ function ContactUs(props) {
       addcomment({
         name: name,
         email: email,
-        phonenumber: phone,
+        phoneNumber: phone,
         comment: comment,
       }).then(data => {
         setName("");
