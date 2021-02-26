@@ -2,7 +2,11 @@ import React from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 function NavBar({ logedIn, setLogedIn, userName }) {
-
+  React.useState(() => {
+    if (localStorage.getItem("user")) {
+      setLogedIn(true)
+    }
+  }, [])
 
   if (logedIn) {
     return (
@@ -11,16 +15,11 @@ function NavBar({ logedIn, setLogedIn, userName }) {
         <label>Welecome {userName}</label>
         <div className="options">
           <Link to="/">
-            <a>Store</a>
-          </Link>
-
-          <Link to="/AboutUs">
-            <a>About Us</a>
-          </Link>
-          <Link to="/ContactUs">
-            <a>Contact Us</a>
+            Store
           </Link>
           <Link to="/addproduct">add Product</Link>
+          <Link to="/editproducts">edit Product</Link>
+          <Link to="/comments">View Comments</Link>
           <a
             onClick={(e) => {
               localStorage.removeItem("user");
@@ -46,10 +45,10 @@ function NavBar({ logedIn, setLogedIn, userName }) {
           </Link>
 
           <Link to="/AboutUs">
-            <a>About Us</a>
+            About Us
           </Link>
           <Link to="/ContactUs">
-            <a>Contact Us</a>
+            Contact Us
           </Link>
           <Link to="/Login">Login</Link>
 

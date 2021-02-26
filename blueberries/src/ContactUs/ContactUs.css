@@ -1,13 +1,29 @@
-.contactUse{
-    color: rgb(7, 7, 7);
-    background-color:rgba(255, 255, 255, 0.849) ;
-    width: fit-content;
-    margin: auto;
+.contactUse {
+  color: rgb(7, 7, 7);
+  background-color: cornsilk;
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
-.theLi{
-    color: rgb(7, 7, 7);
-    background-color:rgba(255, 255, 255, 0.849) ;
-    margin: auto;
-    margin-bottom: 10px;
-    max-width: 300px;
+.theLi {
+  color: rgb(7, 7, 7);
+  background-color: rgba(255, 255, 255, 0.849);
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 300px;
+}
+
+.contactUse > input {
+  width: 90%;
+}
+
+.contactUse > textarea {
+  width: 90%;
+  height: 50px;
+}
+.contactUse > button {
+  border-radius: 10px;
+  width: 50%;
+  margin: auto;
 }
