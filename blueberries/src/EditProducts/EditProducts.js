@@ -54,8 +54,19 @@ function EditProducts(props) {
                 id: products[i].id,
                 quantity: products[i].quantity
             }
-            updatePrice(priceObj, currentUser);
-            updateQuantity(quantityObj, currentUser);
+            if (i === products.length - 1) {
+                updateQuantity(quantityObj, currentUser);
+                updatePrice(priceObj, currentUser).then(data => {
+                    history.push("/");
+
+                }
+                );
+            } else {
+                updateQuantity(quantityObj, currentUser);
+                updatePrice(priceObj, currentUser);
+
+            }
+
         }
         history.push("/");
 
