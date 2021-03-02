@@ -1,6 +1,10 @@
+
 import React from "react";
 import "./MyCard.css";
 import { getAllProducts } from "../../Fetches/getProductsFetch";
+import { buy } from "../../Fetches/buyFetch"
+
+
 
 function MyCard({ myCard, setMyCard }) {
     const [products, setProducts] = React.useState([]);
@@ -19,6 +23,7 @@ function MyCard({ myCard, setMyCard }) {
 
     React.useEffect(() => {
         const list = products.map((product) => {
+
             if (myCard[0][product.id] >= 0) {
                 return (
                     <tr key={product.id}>
@@ -33,6 +38,10 @@ function MyCard({ myCard, setMyCard }) {
                                         theValue = 0;
                                     } else {
                                         theValue = parseInt(e.target.value);
+                                        if (theValue > product.quantity) {
+                                            theValue = product.quantity;
+                                            alert(`we only have ${product.quantity} ${product.name}`)
+                                        }
                                     }
                                     let tempObj = { ...myCard[0] };
                                     let total = myCard[1];
@@ -61,6 +70,19 @@ function MyCard({ myCard, setMyCard }) {
         });
         setmyCardArray(list);
     }, [myCard]);
+
+    const buyHandler = () => {
+        // console.log(myCard[0])
+        const answer = window.confirm("are you sure you want to buy these items");
+        if (answer) {
+            buy(myCard[0]).then(data => {
+                if (data.status === 200) {
+                    setMyCard([{}, 0])
+                }
+            })
+        }
+
+    }
 
     return (
         <div>
@@ -99,6 +121,8 @@ function MyCard({ myCard, setMyCard }) {
                             </tr>
                         </tfoot>
                     </table>
+                    <button onClick={buyHandler}>buy</button>
+
                 </div>
             </div>
         </div>
