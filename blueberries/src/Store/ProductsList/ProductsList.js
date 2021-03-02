@@ -29,7 +29,7 @@ function ProductsList({ searchFilter, categoryFilter, priceFilter, myCard, setMy
 
             return (product.price >= priceFilter[0] && product.price <= priceFilter[1])
           })
-          .map(product => {
+          .map((product, i) => {
 
             return (
               <div key={product.id} className="card">
@@ -40,7 +40,7 @@ function ProductsList({ searchFilter, categoryFilter, priceFilter, myCard, setMy
                   <img className="addToCart" src="/img/addToBasket.png"
                     onClick={e => {
 
-                      addToCardHandler(product.id, product.price)
+                      addToCardHandler(product.id, product.price, i)
                     }}
 
                   />
@@ -58,14 +58,22 @@ function ProductsList({ searchFilter, categoryFilter, priceFilter, myCard, setMy
 
 
 
-  const addToCardHandler = (productID, productPrice) => {
+  const addToCardHandler = (productID, productPrice, i) => {
 
     setMyCard(prev => {
       let tempObj = { ...prev[0] };
       if (!tempObj[productID]) {
         tempObj[productID] = 1;
       } else {
-        tempObj[productID] = tempObj[productID] + 1;
+        console.log(productID)
+        console.log(products[productID]);
+        if (tempObj[productID] + 1 > products[i].quantity) {
+          alert(`we only have ${products[i].quantity} ${products[i].name}`)
+          return [tempObj, prev[1]]
+
+        } else {
+          tempObj[productID] = tempObj[productID] + 1;
+        }
 
       }
       return [tempObj, prev[1] + productPrice]
