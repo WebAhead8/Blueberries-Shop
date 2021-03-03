@@ -13,6 +13,7 @@ function MyCard({ myCard, setMyCard, logedIn }) {
   const [products, setProducts] = React.useState([])
   const [myCardArray, setmyCardArray] = React.useState([])
   const [myCard_visible, setmyCard_visible] = React.useState(false)
+  const [cardNumber, setcardNumber] = React.useState(0)
   const [myCard_buttonClass, setMyCard_buttonClass] = React.useState(
     'myCard_button'
   )
@@ -86,7 +87,7 @@ function MyCard({ myCard, setMyCard, logedIn }) {
       }
     })
     setmyCardArray(list)
-
+    setcardNumber(Object.keys(myCard[0]).length)
   }, [myCard, products])
 
   function buyHandler() {
@@ -161,6 +162,7 @@ function MyCard({ myCard, setMyCard, logedIn }) {
           setmyCard_visible(!myCard_visible)
         }}
       />
+      <label className={myCard_buttonClass + " cardNumber"} >{cardNumber}</label>
       <div className={myCardClass}>
         <div className='myCardElements'>
           <h2>My Card</h2>
