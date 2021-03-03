@@ -3,7 +3,7 @@ import Filters from "./Filters/Filters.js"
 import MyCard from "./MyCard/MyCard.js"
 import "./Store.css"
 import ProductsList from "./ProductsList/ProductsList.js"
-function Store(props) {
+function Store({ logedIn }) {
   const [searchFilter, setSearchFilter] = React.useState("");
   const [categoryFilter, setCategoryFilter] = React.useState("all");
   const [priceFilter, setPriceFilter] = React.useState([1, 100]);
@@ -24,7 +24,7 @@ function Store(props) {
         categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter}
         priceFilter={priceFilter} setPriceFilter={setPriceFilter}
       />
-      <MyCard myCard={myCard} setMyCard={setMyCard} />
+      <MyCard logedIn={logedIn} myCard={myCard} setMyCard={setMyCard} />
     </div>
   );
 }

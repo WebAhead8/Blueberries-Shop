@@ -65,8 +65,7 @@ function ProductsList({ searchFilter, categoryFilter, priceFilter, myCard, setMy
       if (!tempObj[productID]) {
         tempObj[productID] = 1;
       } else {
-        console.log(productID)
-        console.log(products[productID]);
+
         if (tempObj[productID] + 1 > products[i].quantity) {
           alert(`we only have ${products[i].quantity} ${products[i].name}`)
           return [tempObj, prev[1]]
@@ -76,8 +75,12 @@ function ProductsList({ searchFilter, categoryFilter, priceFilter, myCard, setMy
         }
 
       }
+      localStorage.setItem("myCard", JSON.stringify([tempObj, prev[1] + productPrice]))
+
       return [tempObj, prev[1] + productPrice]
     });
+    //console.log(myCard)
+
   }
 
 

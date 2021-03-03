@@ -34,10 +34,8 @@ function EditProducts(props) {
                 return (index !== i)
             })
             setProducts(temp)
-            console.log('deleted.');
         } else {
             // Do nothing!
-            console.log('not deleted.');
 
         }
 
@@ -83,7 +81,6 @@ function EditProducts(props) {
     React.useEffect(() => {
         if (products) {
             const list = products.map((product, i) => {
-                console.log(product)
                 return (<tr key={product.id}>
                     <td>{product.id}</td>
                     <td>{product.name}</td>

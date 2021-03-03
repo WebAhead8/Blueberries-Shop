@@ -4,8 +4,12 @@ import { getAllProducts } from '../../Fetches/getProductsFetch'
 import { buy } from '../../Fetches/buyFetch'
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import { useHistory } from "react-router-dom";
 
-function MyCard ({ myCard, setMyCard }) {
+
+function MyCard({ myCard, setMyCard, logedIn }) {
+  const history = useHistory();
+
   const [products, setProducts] = React.useState([])
   const [myCardArray, setmyCardArray] = React.useState([])
   const [myCard_visible, setmyCard_visible] = React.useState(false)
@@ -13,12 +17,19 @@ function MyCard ({ myCard, setMyCard }) {
     'myCard_button'
   )
   const [myCardClass, setMyCardClass] = React.useState('myCard')
-  const [receiptNumber,setReceiptNumber] = React.useState(1)
+  const [receiptNumber, setReceiptNumber] = React.useState(1)
 
   React.useEffect(() => {
     getAllProducts().then(data => {
       setProducts(data)
     })
+
+    const card = JSON.parse(localStorage.getItem("myCard"));
+    if (card) {
+      setMyCard(card)
+
+    }
+
   }, [])
 
   React.useEffect(() => {
@@ -47,6 +58,8 @@ function MyCard ({ myCard, setMyCard }) {
                   total -= tempObj[product.id] * product.price
                   tempObj[product.id] = theValue
                   total += tempObj[product.id] * product.price
+                  localStorage.setItem("myCard", JSON.stringify([tempObj, total]))
+
                   setMyCard([tempObj, total])
                 }}
                 value={myCard[0][product.id]}
@@ -62,6 +75,7 @@ function MyCard ({ myCard, setMyCard }) {
                   let tempObj = { ...myCard[0] }
                   const total = myCard[1] - tempObj[product.id] * product.price
                   delete tempObj[product.id]
+                  localStorage.setItem("myCard", JSON.stringify([tempObj, total]))
 
                   setMyCard([tempObj, total])
                 }}
@@ -72,24 +86,34 @@ function MyCard ({ myCard, setMyCard }) {
       }
     })
     setmyCardArray(list)
-  }, [myCard])
 
-  function buyHandler(){
-    // console.log(myCard[0])
-    const answer = window.confirm('are you sure you want to buy these items')
-    if (answer) {
-      buy(myCard[0]).then(data => {
-        if (data.status === 200) {
-          setMyCard([{}, 0])
-        }
-      })
+  }, [myCard, products])
+
+  function buyHandler() {
+
+    if (logedIn) {
+      const answer = window.confirm('are you sure you want to buy these items')
+      if (answer) {
+        buy(myCard[0]).then(data => {
+          if (data.status === 200) {
+            setMyCard([{}, 0])
+            exportPDF()
+            localStorage.removeItem("myCard")
+
+          }
+        })
+      }
+    } else {
+      alert("you must log in first")
+      history.push("/login")
+
     }
 
     //window.print()
-    
+
   }
 
-  function exportPDF(){
+  function exportPDF() {
     const unit = "pt";
     const size = "A4"; // Use A1, A2, A3 or A4
     const orientation = "portrait"; // portrait or landscape
@@ -100,14 +124,16 @@ function MyCard ({ myCard, setMyCard }) {
     doc.setFontSize(15);
 
     const title = `Blueberries receipt ${receiptNumber}`;
-    const headers = [["Product", "Quantity","Product Price","Total"]];
+    const headers = [["Product", "Quantity", "Product Price", "Total"]];
     const keys = Object.keys(myCard[0])
     console.log(keys)
-    const data = products.filter(product=>{ console.log(product) 
-        return (keys.includes(product.id+ ""))})
-        .map(product=> [product.name, myCard[0][product.id],product.price ,product.price*myCard[0][product.id]]);
-    setReceiptNumber(receiptNumber+1)
-    data.push(["Total payment",myCard[1]])
+    const data = products.filter(product => {
+      console.log(product)
+      return (keys.includes(product.id + ""))
+    })
+      .map(product => [product.name, myCard[0][product.id], product.price, product.price * myCard[0][product.id]]);
+    setReceiptNumber(receiptNumber + 1)
+    data.push(["Total payment", myCard[1]])
     let content = {
       startY: 50,
       head: headers,
@@ -156,9 +182,8 @@ function MyCard ({ myCard, setMyCard }) {
               </tr>
             </tfoot>
           </table>
-          <button onClick={(e)=>{
-              buyHandler()
-               exportPDF()
+          <button onClick={(e) => {
+            buyHandler()
           }}>buy</button>
         </div>
       </div>
