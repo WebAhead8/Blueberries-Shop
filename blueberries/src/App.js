@@ -15,19 +15,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { getUser } from "./Fetches/getUser";
 
 function App() {
-  // const [logedIn, setLogedIn] = React.useState(false);
   const [logedIn, setLogedIn] = React.useState(false);
   const [userName, setUserName] = React.useState("");
+  const [userType, setUserType] = React.useState("");
   React.useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
-
       getUser(user).then(data => {
-
         setUserName(data.firstname)
+        setUserType(data.type)
       })
     } else {
       setUserName("")
+      setUserType("")
 
     }
   }, [logedIn]);
@@ -35,7 +35,7 @@ function App() {
     //<AddProduct />
     <Router>
       <div className='App'>
-        <NavBar userName={userName} logedIn={logedIn} setLogedIn={setLogedIn} />
+        <NavBar userName={userName} userType={userType} logedIn={logedIn} setLogedIn={setLogedIn} />
 
         <Switch>
           <Route exact path='/AboutUs' component={AboutUs}></Route>
@@ -43,7 +43,7 @@ function App() {
           <Route exact path='/addproduct' component={AddProduct}></Route>
           <Route exact path='/ContactUs' component={ContactUs}></Route>
           <Route exact path='/signup' component={SignUp}></Route>
-          <Route exact path='/' component={Store}></Route>
+          <Route exact path='/' component={() => <Store logedIn={logedIn} />} ></Route>
           <Route exact path='/comments' component={Viewcomment}></Route>
           <Route exact path='/addAdmin' component={AddAdmin}></Route>
           <Route exact path='/Login' component={() => <Login logedIn={logedIn} setLogedIn={setLogedIn} />}></Route>

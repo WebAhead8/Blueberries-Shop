@@ -1,14 +1,14 @@
 import React from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-function NavBar({ logedIn, setLogedIn, userName }) {
+function NavBar({ logedIn, setLogedIn, userName, userType }) {
   React.useState(() => {
     if (localStorage.getItem("user")) {
       setLogedIn(true)
     }
   }, [])
 
-  if (logedIn) {
+  if (userType === "admin") {
     return (
       <div className="navBar">
         <img src={"products_img/blueberry.png"} />
@@ -25,6 +25,7 @@ function NavBar({ logedIn, setLogedIn, userName }) {
             onClick={(e) => {
               localStorage.removeItem("user");
               setLogedIn(false);
+              localStorage.removeItem("myCard")
 
             }}
             href="/"
@@ -36,7 +37,7 @@ function NavBar({ logedIn, setLogedIn, userName }) {
       </div>
     )
 
-  } else {
+  } else if (userType === "client") {
     return (
       <div className="navBar">
         <img src={"products_img/blueberry.png"} />
@@ -51,11 +52,40 @@ function NavBar({ logedIn, setLogedIn, userName }) {
           <Link to="/ContactUs">
             Contact Us
           </Link>
-          <Link to="/Login">Login</Link>
+          <a
+            onClick={(e) => {
+              localStorage.removeItem("user");
+              setLogedIn(false);
+
+            }}
+            href="/"
+          >
+            logOut
+            </a>
 
         </div>
       </div>
     );
+  } else {
+    return (
+      <div className="navBar">
+        <img src={"products_img/blueberry.png"} />
+        <div className="options">
+          <Link to="/">
+            <a>Store</a>
+          </Link>
+
+          <Link to="/AboutUs">
+            About Us
+        </Link>
+          <Link to="/ContactUs">
+            Contact Us
+        </Link>
+          <Link to="/Login">Login</Link>
+
+        </div>
+      </div>
+    )
   }
 
 

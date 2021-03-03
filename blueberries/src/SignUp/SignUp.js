@@ -178,8 +178,8 @@ function SignUp(props) {
                     className={phoneNumberValidation}
                 />
             </label>
-            {lastNameValidation ? (
-                <ErrorComponent>Enter A valid name</ErrorComponent>
+            {phoneNumberValidation ? (
+                <ErrorComponent>Enter A valid phone</ErrorComponent>
             ) : (
                     ""
                 )}
