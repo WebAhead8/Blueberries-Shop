@@ -4,8 +4,11 @@ import passwordValidationFunction from "../helperFunctions/passwordValidation.js
 import ErrorComponent from "../HelperComponents/ErrorComponent.js";
 import emailValidationFunction from "../helperFunctions/emailValidation.js";
 import { addClient } from "../Fetches/addClient";
+import { useHistory } from "react-router-dom";
+
 
 function SignUp(props) {
+    const history = useHistory();
     const [email, setEmail] = React.useState("");
     const [emailValidation, setEmailValidation] = React.useState("");
     const [firstName, setFirstName] = React.useState("");
@@ -105,6 +108,7 @@ function SignUp(props) {
                         }
                     } else {
                         alert("user Added");
+                        history.push("/Login");
                     }
                 })
                 .catch((error) => {
