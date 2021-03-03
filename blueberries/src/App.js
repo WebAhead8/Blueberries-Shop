@@ -10,6 +10,7 @@ import SignUp from './SignUp/SignUp.js'
 import AddProduct from './AddProduct/AddProduct.js'
 import EditProducts from './EditProducts/EditProducts.js'
 import Viewcomment from './ViewComments/ViewComments.js'
+import AddAdmin from './addAdmin/AddAdmin.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { getUser } from "./Fetches/getUser";
 
@@ -44,6 +45,7 @@ function App() {
           <Route exact path='/signup' component={SignUp}></Route>
           <Route exact path='/' component={Store}></Route>
           <Route exact path='/comments' component={Viewcomment}></Route>
+          <Route exact path='/addAdmin' component={AddAdmin}></Route>
           <Route exact path='/Login' component={() => <Login logedIn={logedIn} setLogedIn={setLogedIn} />}></Route>
         </Switch>
       </div>

@@ -20,6 +20,7 @@ function NavBar({ logedIn, setLogedIn, userName }) {
           <Link to="/addproduct">add Product</Link>
           <Link to="/editproducts">edit Product</Link>
           <Link to="/comments">View Comments</Link>
+          <Link to="/AddAdmin">add Admin</Link>
           <a
             onClick={(e) => {
               localStorage.removeItem("user");
