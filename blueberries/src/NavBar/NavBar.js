@@ -12,7 +12,7 @@ function NavBar({ logedIn, setLogedIn, userName, userType }) {
     return (
       <div className="navBar">
         <img src={"products_img/blueberry.png"} />
-        <label>Welecome {userName}</label>
+        <label>Welcome {userName}</label>
         <div className="options">
           <Link to="/">
             Store
@@ -41,6 +41,8 @@ function NavBar({ logedIn, setLogedIn, userName, userType }) {
     return (
       <div className="navBar">
         <img src={"products_img/blueberry.png"} />
+        <label>Welcome {userName}</label>
+
         <div className="options">
           <Link to="/">
             <a>Store</a>
