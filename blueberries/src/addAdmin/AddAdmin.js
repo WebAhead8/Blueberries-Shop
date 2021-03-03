@@ -94,7 +94,7 @@ function AddAdmin(props) {
                 lastName:lastName,
                 phoneNumber:phoneNumber,
                 password:password
-            }).then((data) => {
+            },localStorage.getItem("user")).then((data) => {
                     if (data.error) {
                         if (data.error.code === "23505") {
                             alert("email already exist");
@@ -121,7 +121,7 @@ function AddAdmin(props) {
 
     return (
         <form onSubmit={signUpAdminHandler} className="signUpForm">
-            <h1>Sign Up Admin</h1>
+            <h1>add Admin</h1>
 
 
             <label htmlFor="email">Email:
@@ -160,11 +160,8 @@ function AddAdmin(props) {
             {confirmPasswordValidation ? <ErrorComponent>Password not match</ErrorComponent> : ""}
 
 
+            <input className="button" value="add admin" type="submit" />
 
-            <input className="button" value="SignUp" type="submit" />
-
-
-            <a className="aLink" href="/login">LogIn</a>
         </form>
     )
 }
