@@ -79,29 +79,25 @@ function ProductsList({ searchFilter, categoryFilter, priceFilter, myCard, setMy
 
       return [tempObj, prev[1] + productPrice]
     });
-    //console.log(myCard)
 
   }
 
 
 
-  // if (productsListArray.length===0)
-  // {
-  //   console.log("list",productsListArray)
-  //   return (
-  //     <div className="products">
+  if (products.length > 0) {
+    return (
+      <div className="products">
+        {productsListArray}
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/b6e0b072897469.5bf6e79950d23.gif" />
+      </div>
+    )
+  }
 
-  //      <div className="card"><h1>No Products Found</h1></div> 
-  //     </div>
-  //   )
-  // }
-  // if(!products){return (<h1>Loading</h1>)}
-
-  return (
-    <div className="products">
-      {productsListArray}
-    </div>
-  )
 }
 
 export default ProductsList;
