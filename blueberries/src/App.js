@@ -43,7 +43,7 @@ function App() {
           <Route exact path='/addproduct' component={AddProduct}></Route>
           <Route exact path='/ContactUs' component={ContactUs}></Route>
           <Route exact path='/signup' component={SignUp}></Route>
-          <Route exact path='/' component={() => <Store logedIn={logedIn} />} ></Route>
+          <Route exact path='/' component={() => <Store logedIn={logedIn} userName={userName} />} ></Route>
           <Route exact path='/comments' component={Viewcomment}></Route>
           <Route exact path='/addAdmin' component={AddAdmin}></Route>
           <Route exact path='/Login' component={() => <Login logedIn={logedIn} setLogedIn={setLogedIn} />}></Route>

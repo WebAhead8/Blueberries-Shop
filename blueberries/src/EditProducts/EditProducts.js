@@ -3,7 +3,7 @@ import { getAllProducts } from "../Fetches/getProductsFetch";
 import { updateQuantity } from "../Fetches/updateQuantity";
 import { updatePrice } from "../Fetches/updatePriceFetch";
 import { deleteProduct } from "../Fetches/deleteItem";
-import "./EditProducts.css"
+import "./EditProducts.css";
 import { useHistory } from "react-router-dom";
 
 function EditProducts(props) {
@@ -16,60 +16,52 @@ function EditProducts(props) {
         let tempArr = [...products];
         tempArr[i].price = e.target.value;
         setProducts(tempArr);
-    }
+    };
 
     const quantityChangeHandler = (e, i) => {
-
         let tempArr = [...products];
         tempArr[i].quantity = e.target.value;
         setProducts(tempArr);
-    }
+    };
 
     const removeItemHandler = (e, i) => {
-        const answer = window.confirm('Are you sure you want to delete this product?')
+        const answer = window.confirm(
+            "Are you sure you want to delete this product?"
+        );
         if (answer) {
             deleteProduct(products[i].id, currentUser);
 
             let temp = products.filter((p, index) => {
-                return (index !== i)
-            })
-            setProducts(temp)
+                return index !== i;
+            });
+            setProducts(temp);
         } else {
             // Do nothing!
-
         }
+    };
 
-
-    }
-
-    const saveHandler = e => {
+    const saveHandler = (e) => {
         for (let i = 0; i < products.length; i++) {
             const priceObj = {
                 id: products[i].id,
-                price: products[i].price
-            }
+                price: products[i].price,
+            };
             const quantityObj = {
                 id: products[i].id,
-                quantity: products[i].quantity
-            }
+                quantity: products[i].quantity,
+            };
             if (i === products.length - 1) {
                 updateQuantity(quantityObj, currentUser);
-                updatePrice(priceObj, currentUser).then(data => {
+                updatePrice(priceObj, currentUser).then((data) => {
                     history.push("/");
-
-                }
-                );
+                });
             } else {
                 updateQuantity(quantityObj, currentUser);
                 updatePrice(priceObj, currentUser);
-
             }
-
         }
         history.push("/");
-
-
-    }
+    };
 
     React.useEffect(() => {
         getAllProducts().then((data) => {
@@ -81,20 +73,43 @@ function EditProducts(props) {
     React.useEffect(() => {
         if (products) {
             const list = products.map((product, i) => {
-                return (<tr key={product.id}>
-                    <td>{product.id}</td>
-                    <td>{product.name}</td>
-                    <td><input type="number" value={product.price} onChange={e => { priceChangeHandler(e, i) }} /></td>
-                    <td>{product.category}</td>
-                    <td>{product.image}</td>
-                    <td><input type="number" value={product.quantity} onChange={e => { quantityChangeHandler(e, i) }} /></td>
-                    <td><img className="trashSymbol" src="https://cdn4.iconfinder.com/data/icons/personal-hygiene-line/72/Personal_Hygiene-45-512.png"
-                        onClick={e => { removeItemHandler(e, i) }} /></td>
-                </tr>
-                )
+                return (
+                    <tr key={product.id}>
+                        <td>{product.id}</td>
+                        <td>{product.name}</td>
+                        <td>
+                            <input
+                                type="number"
+                                value={product.price}
+                                onChange={(e) => {
+                                    priceChangeHandler(e, i);
+                                }}
+                            />
+                        </td>
+                        <td>{product.category}</td>
+                        <td>{product.image}</td>
+                        <td>
+                            <input
+                                type="number"
+                                value={product.quantity}
+                                onChange={(e) => {
+                                    quantityChangeHandler(e, i);
+                                }}
+                            />
+                        </td>
+                        <td>
+                            <img
+                                className="trashSymbol"
+                                src="https://cdn4.iconfinder.com/data/icons/personal-hygiene-line/72/Personal_Hygiene-45-512.png"
+                                onClick={(e) => {
+                                    removeItemHandler(e, i);
+                                }}
+                            />
+                        </td>
+                    </tr>
+                );
             });
-            setproductsListArray(list)
-
+            setproductsListArray(list);
         }
     }, [products]);
 
@@ -113,10 +128,16 @@ function EditProducts(props) {
             </thead>
             <tbody>{productsListArray}</tbody>
             <tfoot>
-                <td colSpan="6"><img className="saveImg" src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/512/Save-icon.png" onClick={saveHandler} /></td>
-
+                <tr>
+                    <td colSpan="6">
+                        <img
+                            className="saveImg"
+                            src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/512/Save-icon.png"
+                            onClick={saveHandler}
+                        />
+                    </td>
+                </tr>
             </tfoot>
-
         </table>
     );
 }

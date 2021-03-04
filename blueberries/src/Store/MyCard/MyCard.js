@@ -7,7 +7,7 @@ import "jspdf-autotable";
 import { useHistory } from "react-router-dom";
 
 
-function MyCard({ myCard, setMyCard, logedIn }) {
+function MyCard({ myCard, setMyCard, logedIn, userName }) {
   const history = useHistory();
 
   const [products, setProducts] = React.useState([])
@@ -95,7 +95,7 @@ function MyCard({ myCard, setMyCard, logedIn }) {
     if (logedIn) {
       const answer = window.confirm('are you sure you want to buy these items')
       if (answer) {
-        buy(myCard[0]).then(data => {
+        buy(myCard[0], localStorage.getItem("user")).then(data => {
           if (data.status === 200) {
             setMyCard([{}, 0])
             exportPDF()
@@ -127,14 +127,15 @@ function MyCard({ myCard, setMyCard, logedIn }) {
     const title = `Blueberries receipt ${receiptNumber}`;
     const headers = [["Product", "Quantity", "Product Price", "Total"]];
     const keys = Object.keys(myCard[0])
-    console.log(keys)
     const data = products.filter(product => {
-      console.log(product)
       return (keys.includes(product.id + ""))
     })
       .map(product => [product.name, myCard[0][product.id], product.price, product.price * myCard[0][product.id]]);
     setReceiptNumber(receiptNumber + 1)
-    data.push(["Total payment", myCard[1]])
+    data.push(["Total payment", " ", " ", myCard[1]])
+    data.push([""])
+    data.push([""])
+    data.push(["buyer name", userName])
     let content = {
       startY: 50,
       head: headers,

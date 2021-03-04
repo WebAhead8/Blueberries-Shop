@@ -9,7 +9,6 @@ function Viewcomment() {
 
     React.useEffect(() => {
         getComments().then(data => {
-            console.log(data)
             setComments(data)
         })
     }, [])

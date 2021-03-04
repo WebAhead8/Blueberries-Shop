@@ -74,7 +74,7 @@ function ContactUs(props) {
         />
 
         <h3>comment :</h3>
-        <textarea
+        <textArea
           name="comment"
           placeHolder="leave a comment "
           value={comment}
